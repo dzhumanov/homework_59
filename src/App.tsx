@@ -65,7 +65,7 @@ function App() {
         <hr />
         <div className="joke-container">
           <div>{joke}</div>
-          <JokeButton fetchJoke={fetchJoke}/>
+          <JokeButton fetchJoke={fetchJoke} />
         </div>
       </div>
     </>

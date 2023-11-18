@@ -11,6 +11,7 @@ interface Props {
 const WatchList: React.FC<Props> = React.memo(
   ({ movies, onEdit, onDelete }) => (
     <>
+    <h5>Watchlist: </h5>
       {movies.map((movie) => (
         <MovieItem
           key={movie.id}
