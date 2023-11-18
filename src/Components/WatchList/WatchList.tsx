@@ -1,15 +1,26 @@
-import Movie from "../Movie/Movie";
+import React from "react";
+import MovieItem from "../MovieItem/MovieItem";
+import { MovieProps } from "../../types";
 
-const WatchList = () => {
-    return(
-        <div>
-            <h4>To watch list:</h4>
-            <div>
-                <Movie name="One movie"/>
-                <Movie name="Two movie"/>
-            </div>
-        </div>
-    )
+interface Props {
+  movies: MovieProps[];
+  onEdit: (id: number, name: string) => void;
+  onDelete: (id: number) => void;
 }
+
+const WatchList: React.FC<Props> = React.memo(
+  ({ movies, onEdit, onDelete }) => (
+    <>
+      {movies.map((movie) => (
+        <MovieItem
+          key={movie.id}
+          movie={movie}
+          onEdit={onEdit}
+          onDelete={onDelete}
+        />
+      ))}
+    </>
+  )
+);
 
 export default WatchList;
